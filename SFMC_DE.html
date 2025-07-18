@@ -1,0 +1,546 @@
+  %%[
+    set @token = RequestParameter("token")
+  ]%%
+   
+  <html lang="en">
+  <head>
+    <style>
+    
+    body {
+    font-family: Arial;
+  }
+
+    table {
+   border-collapse: collapse;
+   table-layout: auto;
+   width: 100%;  
+    }
+
+    th{
+      text-align: left;
+   border: 1px solid LightGray;
+      padding: 5px 10px;
+   background-color:#ADD8E6;
+   text-transform: uppercase;
+   font-size: 15px;
+   white-space: nowrap;;
+    }
+
+   td {
+      text-align: left;
+   border: 1px solid LightGray;
+      padding: 5px 10px;
+   white-space: nowrap;;
+    } 
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    
+  label{
+   font-size: 12px;
+  } 
+    
+  input[type=text], select {
+    padding: 6px 5px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+
+  div.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 550px;
+    left: 50%;
+    margin-right: -50%;
+  }
+
+    </style>
+      <meta charset="UTF-8">
+      <title>Cloud page 5</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  </head>
+  <body>
+
+  <script language="javascript" runat="server">
+  Platform.Load("core", "1.1.1");
+
+  var token = 'ac0c71ba-2a9b-4d47-8248-919718741f30';
+  Variable.SetValue("@token",token);  
+    
+  var time = new Date(new Date().getTime() + 1 * 60 * 1000);  
+  var Expirytime = new Date(new Date().getTime() + 60 * 60 * 1000); 
+  var logAuthCookie = '';
+  var endpoint = 'https://pages.royalcaribbeanmarketingintl.com/login';  
+  var checkpoint = 0;  
+    
+  if(Platform.Request.GetCookieValue('logAuthCookie')){ logAuthCookie = Platform.Request.GetCookieValue('logAuthCookie');  
+  }else{
+   if(Platform.Request.GetQueryStringParameter("log")){ logAuthCookie = Base64Decode(Platform.Request.GetQueryStringParameter("log")); }else{ Redirect(endpoint+'?error_user=0',true); }   
+  }    
+    
+
+  if(Platform.Request.GetQueryStringParameter("rd") == 'login'){ 
+
+  Write("Implemented version: 1.8"); 
+
+//    if(logAuthCookie != ''){ 
+
+    Variable.SetValue("@encData", logAuthCookie);
+      
+  </script>  
+  %%[
+  SET @password = "a90e54e2-670d-41d2-863c-059f65906de7"
+  SET @salt = "e313e539-a64d-4cc3-9dad-76eb15479523"
+  SET @initVector = "a0ece713-84b2-4256-ab4e-9bd21eabf415"
+
+  IF (EMPTY(@encData) OR @encData == "Unknown") THEN
+  SET @clearData = '0'
+  ELSE
+  SET @clearData = DecryptSymmetric(@encData, 'AES', @password, @null, @salt, @null, @initVector, @null)
+  ENDIF
+  ]%%
+  <script language="javascript" runat="server">
+  Platform.Load("core", "1.1.1");  
+
+      
+    var CookieValue = Variable.GetValue("@clearData"); 
+    var splitCookie = CookieValue.split(/-670d-/);
+    var localTime = Base64Decode(splitCookie[2]);
+    var cookieDate = new Date(localTime);
+
+    if(cookieDate >= time){    
+    
+    if(splitCookie[1] == 'oauthlogin'){ var existLogin = [{"username":"SFMC","redirect":"https://cloud.royalcaribbeanint.com/sfmcutility"}];     
+    }else{  
+     var searchDE = DataExtension.Init("Users_Management");
+     var existLogin = searchDE.Rows.Lookup(["username","password"], [splitCookie[0],splitCookie[1]]);
+    }
+    
+        if (existLogin.length > 0){ 
+
+            localTime = Base64Encode(Expirytime);  
+            var encDataTxt = splitCookie[0]+'-670d-'+splitCookie[1]+'-670d-'+localTime+'-670d-'+splitCookie[3];
+            Variable.SetValue("@encDataTxt", encDataTxt);
+
+  </script>  
+  %%[
+  SET @password = "a90e54e2-670d-41d2-863c-059f65906de7"
+  SET @salt = "e313e539-a64d-4cc3-9dad-76eb15479523"
+  SET @initVector = "a0ece713-84b2-4256-ab4e-9bd21eabf415"
+
+  IF (EMPTY(@encDataTxt) OR @encDataTxt == "Unknown") THEN
+  SET @validationData = '0'
+  ELSE
+  SET @validationData = '1'
+  SET @encData = EncryptSymmetric(@encDataTxt, 'AES', @password, @null, @salt, @null, @initVector, @null)
+  ENDIF
+  ]%%
+  <script language="javascript" runat="server">
+  Platform.Load("core", "1.1.1");       
+    
+            var CookieValue = Variable.GetValue("@encData");
+            Platform.Response.SetCookie("logAuthCookie",CookieValue,Expirytime,true);        
+    
+            if(Request.GetQueryStringParameter("log")){ var randomID = Base64Encode(Platform.Function.GUID());
+               Redirect(existLogin[0].redirect+'/?'+randomID,true);
+            }
+
+        }else{ Redirect(endpoint+'?error_user=1',true); }  /* END existLogin.length */     
+    }else{   Redirect(endpoint+'?error_user=0',true); } /* END cookieDate >= time */
+//    }else{ Redirect(endpoint+'?error_user=0',true); } // End logAuthCookie != ''
+
+
+  }else{
+
+//Session validation cookie Log in SFMC
+
+//    if(logAuthCookie != ''){ 
+
+    Variable.SetValue("@encData", logAuthCookie);
+      
+  </script>  
+  %%[
+  SET @password = "a90e54e2-670d-41d2-863c-059f65906de7"
+  SET @salt = "e313e539-a64d-4cc3-9dad-76eb15479523"
+  SET @initVector = "a0ece713-84b2-4256-ab4e-9bd21eabf415"
+
+  IF (EMPTY(@encData) OR @encData == "Unknown") THEN
+  SET @clearData = '0'
+  ELSE
+  SET @clearData = DecryptSymmetric(@encData, 'AES', @password, @null, @salt, @null, @initVector, @null)
+  ENDIF
+  ]%%
+  <script language="javascript" runat="server">
+  Platform.Load("core", "1.1.1");    
+      
+    var CookieValue = Variable.GetValue("@clearData"); 
+    var splitCookie = CookieValue.split(/-670d-/);
+    var localTime = Base64Decode(splitCookie[2]);
+    var cookieDate = new Date(localTime);
+
+    if(cookieDate >= time){    
+    
+    if(splitCookie[1] == 'oauthlogin'){ var existLogin = [{"username":"SFMC","redirect":"https://cloud.royalcaribbeanint.com/sfmcutility"}];     
+    }else{  
+     var searchDE = DataExtension.Init("Users_Management");
+     var existLogin = searchDE.Rows.Lookup(["username","password"], [splitCookie[0],splitCookie[1]]);
+    }
+    
+        if (existLogin.length > 0){ 
+
+            localTime = Base64Encode(Expirytime);  
+            var encDataTxt = splitCookie[0]+'-670d-'+splitCookie[1]+'-670d-'+localTime+'-670d-'+splitCookie[3];
+            Variable.SetValue("@encDataTxt", encDataTxt);
+
+  </script>  
+  %%[
+  SET @password = "a90e54e2-670d-41d2-863c-059f65906de7"
+  SET @salt = "e313e539-a64d-4cc3-9dad-76eb15479523"
+  SET @initVector = "a0ece713-84b2-4256-ab4e-9bd21eabf415"
+
+  IF (EMPTY(@encDataTxt) OR @encDataTxt == "Unknown") THEN
+  SET @validationData = '0'
+  ELSE
+  SET @validationData = '1'
+  SET @encData = EncryptSymmetric(@encDataTxt, 'AES', @password, @null, @salt, @null, @initVector, @null)
+  ENDIF
+  ]%%
+  <script language="javascript" runat="server">
+  Platform.Load("core", "1.1.1");      
+    
+            var CookieValue = Variable.GetValue("@encData");
+            Platform.Response.SetCookie("logAuthCookie",CookieValue,Expirytime,true);        
+    
+            if(Request.GetQueryStringParameter("log")){ var randomID = Base64Encode(Platform.Function.GUID());
+               Redirect(existLogin[0].redirect+'/?'+randomID,true);
+            }
+
+        }else{ Redirect(endpoint+'?error_user=1',true); }  /* END existLogin.length */     
+    }else{ Redirect(endpoint+'?error_user=0',true); } /* END cookieDate >= time */
+//    }else{  } /* END logAuthCookie != '' .-comment this redirect so as not to have error at the time of posting, this error is from MC but the process works fine */     
+
+  } /* END rd=sfmc */
+
+  </script>    
+
+    
+  <div class="container">
+   <form id="myForm" action="" method="post">
+   
+    <input id="CodeP" type="hidden" value="%%=v(@token)=%%">
+
+    <label for="mid">MID:</label><br> 
+    <input type="text" id="mid" name="mid" list="midList" size="10">
+    <datalist id="midList">
+    <option value="1332579">Travel PLUS</option>      
+    <option value="1332585">DOMESTIC</option>
+    <option value="1334221">INTERNATIONAL</option> 
+    <option value="1332592">LACAR Region</option>   
+    <option value="1334188">EMEA_RCI</option>   
+    <option value="1334194">Singapore &amp; APAC</option>   
+    <option value="1334220">Australia</option>   
+    <option value="1353164">UK_RCI</option>   
+    <option value="1377932">NORDICS</option>   
+    <option value="1394588">Eurozone</option>  
+      <option value="1376234">Dev</option> 
+      <option value="1353157">Preprod</option> 
+      <option value="523014069">CEL_NA</option> 
+      <option value="523014070">CEL_INTL</option> 
+      <option value="523014071">CEL_UK</option> 
+    </datalist>
+
+          <label style = "margin-left: 20px;padding-top: 5px;vertical-align: center;"><input type="checkbox"  id="clearCol" value="clearCol" checked>
+          Clear Form</label>
+          <br><br>
+
+    <label for="deName">Data Extension:</label><br>
+    <input type="text" id="deName" name="deName" list="deList" size="50">
+    <datalist id="deList"> 
+    </datalist><label for="deName" id="deStatus"style="color: green;"></label><br><br>
+    
+    <label for="deCol">Filter Column 1:</label><br>
+    <select id="deCol" name="deCol"  style="width: 300px;">
+    </select><br>
+
+
+    <select id="deOper" name="deOper">
+    <option selected="selected" value="equals">=</option>      
+    <option value="notEquals">!=</option>     
+    <option value="greaterThan">&#62</option>    
+    <option value="lessThan">&#60</option>  
+    <option value="greaterThanOrEqual">&#62=</option>  
+    <option value="lessThanOrEqual">&#60=</option>    
+    <option value="isNull">isNull</option>   
+    <option value="isNotNull">isNotNull</option>   
+    </select> 
+
+    <input type="text" id="deValue" name="deValue" value="" size="50" maxlength="128"><br><br>
+
+
+    <label for="deCol2">Filter Column 2:</label><br>
+    <select id="deCol2" name="deCol2"  style="width: 300px;">
+    <option selected='selected'></option>
+    </select><br>   
+
+    <select id="deOper2" name="deOper2" disabled>
+    <option selected="selected" value="equals">=</option>      
+    <option value="notEquals">!=</option>     
+    <option value="greaterThan">&#62</option>    
+    <option value="lessThan">&#60</option>  
+    <option value="greaterThanOrEqual">&#62=</option>  
+    <option value="lessThanOrEqual">&#60=</option>    
+    <option value="isNull">isNull</option>   
+    <option value="isNotNull">isNotNull</option>    
+    </select> 
+
+     <input type="text" id="deValue2" name="deValue2" value="" size="50" maxlength="128" disabled><br><br> 
+
+    <label for="deDispCol">Display Column(s):</label><br>
+    <select id="deDispCol" name="deDispCol" size="10"  multiple="multiple" style="width: 300px;">
+
+    <option value="0">*</option>
+    </select><br><br>
+
+    <button id="query">Query</button>
+   </form>
+   </div>
+   
+   <div class="tbl">
+   <p id="deLocation" style="color: #1A5276; font-size: 12px;"></p>
+   <p id="deLength"></p>
+   <p id="deData"></p>
+   <div class="tbl">
+
+   
+  <script>
+
+   var codeP = document.getElementById("CodeP").value;
+   
+   var urlServiceLookup = 'https://cloud.royalcaribbeanint.com/sfmcutility_service';
+   var urlDEDataLookup = 'https://cloud.royalcaribbeanint.com/sfmcutility_de_data_lookup?token=' + codeP;
+   
+   console.log(urlDEDataLookup);
+
+   var colName = [];
+    
+   $.ajaxSetup({
+     contentType: 'application/json'
+    });
+    
+     //second filter change
+     $("#myForm").change(function(){
+      
+      if($("#deCol2").val() == ""){
+       $("#deOper2").prop('disabled', true);
+       $("#deValue2").prop('disabled', true);     
+      }else{
+       $("#deOper2").prop('disabled', false);
+       $("#deValue2").prop('disabled', false);       
+      }
+      
+      
+      
+     });
+    
+   //Data Extension column lookup
+   $("#mid").change(function(){
+    
+    
+   $("#deList").empty();
+   $("#deStatus").empty(); 
+   $("#deLocation").empty();
+   $("#deName").val(""); 
+    
+   if ($('#clearCol').is(":checked")){
+    $("#deCol").empty();
+    $("#deCol2").empty();
+    $("#deCol2").append("<option selected='selected'></option>");
+    $("#deDispCol").empty();
+    $("#deValue").val("");
+    $("#deValue2").val("");
+   }
+    
+    
+    $.post(urlServiceLookup, JSON.stringify({"mid": $("#mid").val(),"deName": $("#deName").val(),"method":"DE_List"}), function(response){
+      
+      var len = response.length;
+
+      for( var i = 0; i<len; i++){
+       de = response[i];    
+       $("#deList").append("<option value='"+de+"'>"+de+"</option>");
+      }
+      $("#deStatus").text('Ready');
+     
+    }, "json")
+    
+    .fail(function(xhr, textStatus, error) { 
+     console.log(xhr.responseText);
+    });
+     
+   });
+
+
+   //Data Extension column lookup
+   $("#deName").change(function(){
+    
+   $("#deLocation").empty(); 
+   $("#deDispCol").empty();
+    
+   if ($('#clearCol').is(":checked")){
+    $("#deCol").empty();
+    $("#deCol2").empty();
+    $("#deCol2").append("<option selected='selected'></option>");
+    $("#deValue").val("");
+    $("#deValue2").val("");
+   }
+    
+    $.post(urlServiceLookup, JSON.stringify({"mid": $("#mid").val(),"deName": $("#deName").val(),"method":"Column_List"}), function(response){
+      
+      var len = response.length;
+
+      colName = response;
+   
+   //$("#deCol2").append("<option selected='selected'></option>");
+   //$("#deOper2").prop('disabled', true);
+   //$("#deValue2").prop('disabled', true);
+
+      $("#deDispCol").append("<option selected='selected' value='*'>*</option>");
+      for( var i = 0; i<len; i++){
+       col = response[i];
+       
+       $("#deCol").append("<option value='"+col+"'>"+col+"</option>");
+    $("#deCol2").append("<option value='"+col+"'>"+col+"</option>");
+       $("#deDispCol").append("<option value='"+col+"'>"+col+"</option>");
+
+      }
+     
+    }, "json")
+    
+    .fail(function(xhr, textStatus, error) { 
+     console.log(xhr.responseText);
+    });
+    
+    
+    $.post(urlServiceLookup, JSON.stringify({"mid": $("#mid").val(),"deName": $("#deName").val(),"method":"DE_Location"}), function(response){
+
+      $("#deLocation").html(response[0]);
+     
+    }, "json")
+    
+    .fail(function(xhr, textStatus, error) { 
+        console.log(xhr.statusText);
+        console.log(textStatus);
+        console.log(error);
+    });
+     
+   });
+
+
+   //Data lookup
+   $("#query").click(function(e) {
+    
+    var form = document.querySelector('form');
+    var formData = new FormData(form);
+     
+    e.preventDefault();
+    $("#deData").html('Running...');
+    $("#deLength").empty();
+    
+    var object = {};
+    formData.forEach((value, key) => {
+     if(!Reflect.has(object, key)){
+      object[key] = value;
+      return;
+     }
+     if(!Array.isArray(object[key])){
+      object[key] = [object[key]];    
+     }
+     object[key].push(value);
+    });
+    
+    console.log(JSON.stringify(object));
+    
+    $.post(urlDEDataLookup, JSON.stringify(object), function(response){
+
+     var list =  response;
+     
+     if(list.length == 1){
+      $("#deData").html("No Records Found.");
+   $("#deLength").empty();
+     }
+     else { 
+     
+      var colSel = $("#deDispCol").val();
+   
+   $("#deLength").html("Count: "+list[0].length);
+       
+      var html = '<table> \n'
+
+      html = html + "<thead>\n<tr>\n"
+
+      for (var i = 0; i < colName.length; i++) {
+       if(colSel.indexOf(colName[i]) > -1 || colSel.indexOf("*") > -1){
+        html = html + "<th>" + colName[i] + "</th> \n";
+       }
+      }
+
+      html = html + "</thead>\n</tr>\n"
+      html = html + "<tbody>\n"
+
+      for (var i = 1; i < list.length; i++) {
+
+      html = html + "<tr> \n"
+
+      for (var j = 0; j < colName.length; j++) {
+       if(colSel.indexOf(colName[j]) > -1 || colSel.indexOf("*") > -1){
+        html = html + "<td>" + list[i][colName[j]] + "</td> \n";
+       }
+      }
+
+      html = html + "</tr>\n"
+      }
+
+      html = html + "</tbody>\n"
+      html = html + "</table>"
+      
+      $("#deData").html(html);
+     }   
+    }, "json")
+    
+    .fail(function(xhr, textStatus, error) { 
+     console.log(xhr.responseText);
+     $("#deData").html(xhr.responseText);
+    });
+    
+   }); 
+    
+
+   $.fn.serializeObject = function()
+   {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+     if (o[this.name] !== undefined) {
+      if (!o[this.name].push) {
+       o[this.name] = [o[this.name]];
+      }
+      o[this.name].push(this.value || '');
+     } else {
+      o[this.name] = this.value || '';
+     }
+    });
+    return o;
+   }; 
+    
+   </script>
+   
+
+     
+     
+  </body>
+  </html> 

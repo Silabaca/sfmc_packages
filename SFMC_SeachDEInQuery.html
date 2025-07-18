@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Query Activities using a Data Extension</title>
+</head>
+<body>
+    <h1>Find Query Activities using a Data Extension</h1>
+    <form id="deForm" method="get">
+        <label for="dataExtensionName">Enter Data Extension Name:</label>
+        <input type="text" id="dataExtensionName" name="dataExtensionName" required>
+        <button type="submit">Find</button>
+    </form>
+    <div id="result"></div>
+
+    <script runat="server">
+        Platform.Load("core", "1");
+
+        try {
+            var dataExtensionName = Request.GetQueryStringParameter("dataExtensionName");
+
+            if (dataExtensionName) {
+                var filter = {
+                    Property: "CustomerKey", 
+                    SimpleOperator: "isNotNull", 
+                    Value: ""
+                };
+
+                var queryDefinitions = QueryDefinition.Retrieve(filter);
+                var queriesUsingDE = [];
+
+                for (var i = 0; i < queryDefinitions.length; i++) {
+                    var queryDefinition = queryDefinitions[i];
+
+                    if (queryDefinition.QueryText.indexOf(dataExtensionName) !== -1) {
+                        queriesUsingDE.push(queryDefinition);
+                    }
+                }
+
+                if (queriesUsingDE.length > 0) {
+                    var resultHTML = "<h2>Query Activities with '" + dataExtensionName + "':</h2>";
+                    for (var j = 0; j < queriesUsingDE.length; j++) {
+                        resultHTML += "<p>Name: " + queriesUsingDE[j].Name + "</p>";
+                        resultHTML += "<p>Description: " + queriesUsingDE[j].Description + "</p>";
+                        resultHTML += "<p>Query Text: <pre>" + queriesUsingDE[j].QueryText + "</pre></p>";
+                        resultHTML += "<hr>";
+                    }
+                    Write("<script>document.getElementById('result').innerHTML = `" + resultHTML.replace(/`/g, "\\`") + "`;</script>");
+                } else {
+                    Write("<script>document.getElementById('result').innerHTML = 'NOT FOUND';</script>");
+                }
+            }
+        } catch (error) {
+            Write("<script>document.getElementById('result').innerHTML = 'Error: " + Stringify(error) + "';</script>");
+        }
+    </script>
+</body>
+</html>

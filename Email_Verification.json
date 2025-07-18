@@ -1,0 +1,982 @@
+{
+    "appVersion": "254.0.37",
+    "id": "h96cns5ydy",
+    "name": "My Definition - July 15, 2025 at 11:17:47 AM",
+    "version": 1,
+    "modelVersion": "8",
+    "references": {
+        "automations/a92797b1-2137-4ce7-9087-6e94900ad049": [
+            {
+                "identifier": "scriptActivities/d97e6b1e-cd56-43ba-a838-971efaee3326",
+                "relationship": "required"
+            },
+            {
+                "identifier": "scriptActivities/c91f48fd-9673-4b4f-b1d1-8fa80ec551aa",
+                "relationship": "required"
+            },
+            {
+                "identifier": "scriptActivities/0eb94737-e6d2-4b85-9606-74a0265b86cc",
+                "relationship": "required"
+            },
+            {
+                "identifier": "queryActivities/c98f471d-ef6a-45ee-9797-a526e78b8378",
+                "relationship": "required"
+            },
+            {
+                "identifier": "categories/1077163",
+                "relationship": "required"
+            }
+        ],
+        "scriptActivities/c91f48fd-9673-4b4f-b1d1-8fa80ec551aa": [
+            {
+                "identifier": "dataExtensions/880cdf10-f833-ef11-ba55-d4f5ef3de438",
+                "relationship": "required"
+            },
+            {
+                "identifier": "categories/1077169",
+                "relationship": "required"
+            }
+        ],
+        "scriptActivities/0eb94737-e6d2-4b85-9606-74a0265b86cc": [
+            {
+                "identifier": "dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438",
+                "relationship": "required"
+            },
+            {
+                "identifier": "categories/1077169",
+                "relationship": "required"
+            }
+        ],
+        "queryActivities/c98f471d-ef6a-45ee-9797-a526e78b8378": [
+            {
+                "identifier": "dataExtensions/451f8d43-a629-ef11-ba55-d4f5ef3de438",
+                "relationship": "required"
+            },
+            {
+                "identifier": "dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438",
+                "relationship": "required"
+            },
+            {
+                "identifier": "categories/1077168",
+                "relationship": "required"
+            }
+        ],
+        "scriptActivities/d97e6b1e-cd56-43ba-a838-971efaee3326": [
+            {
+                "identifier": "dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438",
+                "relationship": "required"
+            },
+            {
+                "identifier": "dataExtensions/880cdf10-f833-ef11-ba55-d4f5ef3de438",
+                "relationship": "required"
+            },
+            {
+                "identifier": "dataExtensions/1c8cd664-e350-ef11-ba55-d4f5ef3de438",
+                "relationship": "required"
+            },
+            {
+                "identifier": "categories/1077169",
+                "relationship": "required"
+            }
+        ],
+        "categories/1077169": [
+            {
+                "identifier": "categories/1004067",
+                "relationship": "required"
+            }
+        ],
+        "categories/1077168": [
+            {
+                "identifier": "categories/963850",
+                "relationship": "required"
+            }
+        ],
+        "categories/1077163": [
+            {
+                "identifier": "categories/963714",
+                "relationship": "required"
+            }
+        ],
+        "categories/1004067": [
+            {
+                "identifier": "categories/401368",
+                "relationship": "required"
+            }
+        ],
+        "categories/963850": [
+            {
+                "identifier": "categories/390699",
+                "relationship": "required"
+            }
+        ],
+        "categories/401368": [],
+        "categories/963714": [
+            {
+                "identifier": "categories/604261",
+                "relationship": "required"
+            }
+        ],
+        "categories/390699": [],
+        "categories/604261": [],
+        "dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438": [
+            {
+                "identifier": "categories/1001534",
+                "relationship": "required"
+            }
+        ],
+        "dataExtensions/880cdf10-f833-ef11-ba55-d4f5ef3de438": [
+            {
+                "identifier": "categories/1001534",
+                "relationship": "required"
+            }
+        ],
+        "dataExtensions/1c8cd664-e350-ef11-ba55-d4f5ef3de438": [
+            {
+                "identifier": "categories/1001534",
+                "relationship": "required"
+            }
+        ],
+        "dataExtensions/451f8d43-a629-ef11-ba55-d4f5ef3de438": [
+            {
+                "identifier": "categories/1001534",
+                "relationship": "required"
+            }
+        ],
+        "categories/1001534": [
+            {
+                "identifier": "categories/963708",
+                "relationship": "required"
+            }
+        ],
+        "categories/963708": [
+            {
+                "identifier": "categories/390694",
+                "relationship": "required"
+            }
+        ],
+        "categories/390694": []
+    },
+    "input": [],
+    "config": {
+        "preserveCategories": true,
+        "storeImagesAsReferences": false
+    },
+    "entities": {
+        "assets": {},
+        "attributeGroups": {},
+        "attributeRelationships": {},
+        "attributeSets": {},
+        "automations": {
+            "a92797b1-2137-4ce7-9087-6e94900ad049": {
+                "issues": [],
+                "originID": "a92797b1-2137-4ce7-9087-6e94900ad049",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "categoryId": "{{mcpm#/entities/categories/1077163/data/id}}",
+                    "description": "",
+                    "key": "74a182f1-7505-b7d7-f27b-5cc165c56ce9",
+                    "name": "Email Verification",
+                    "steps": [
+                        {
+                            "activities": [
+                                {
+                                    "name": "{{mcpm#/entities/queryActivities/c98f471d-ef6a-45ee-9797-a526e78b8378/data/name}}",
+                                    "activityObjectId": "{{mcpm#/entities/queryActivities/c98f471d-ef6a-45ee-9797-a526e78b8378/data/id}}",
+                                    "objectTypeId": 300,
+                                    "displayOrder": 0,
+                                    "serializedObject": "<QueryDefinition xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://exacttarget.com/wsdl/partnerAPI\"><PartnerKey xsi:nil=\"true\" /><ObjectID>c98f471d-ef6a-45ee-9797-a526e78b8378</ObjectID><Name>Email_Verification_List</Name></QueryDefinition>"
+                                }
+                            ],
+                            "annotation": "",
+                            "name": ""
+                        },
+                        {
+                            "activities": [
+                                {
+                                    "name": "{{mcpm#/entities/scriptActivities/d97e6b1e-cd56-43ba-a838-971efaee3326/data/name}}",
+                                    "activityObjectId": "{{mcpm#/entities/scriptActivities/d97e6b1e-cd56-43ba-a838-971efaee3326/data/id}}",
+                                    "objectTypeId": 423,
+                                    "displayOrder": 0,
+                                    "serializedObject": "<SSJSActivity xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://exacttarget.com/wsdl/partnerAPI\"><PartnerKey xsi:nil=\"true\" /><ObjectID>d97e6b1e-cd56-43ba-a838-971efaee3326</ObjectID><Name>Email Verification Request</Name><CategoryId>0</CategoryId></SSJSActivity>"
+                                }
+                            ],
+                            "annotation": "",
+                            "name": ""
+                        },
+                        {
+                            "activities": [
+                                {
+                                    "name": "15 Minutes",
+                                    "activityObjectId": "a186ed59-5970-499c-be32-a2e64744ec77",
+                                    "objectTypeId": 467,
+                                    "displayOrder": 0,
+                                    "serializedObject": "{\"duration\":15,\"durationUnits\":\"Minutes\"}"
+                                }
+                            ],
+                            "annotation": "",
+                            "name": ""
+                        },
+                        {
+                            "activities": [
+                                {
+                                    "name": "{{mcpm#/entities/scriptActivities/c91f48fd-9673-4b4f-b1d1-8fa80ec551aa/data/name}}",
+                                    "activityObjectId": "{{mcpm#/entities/scriptActivities/c91f48fd-9673-4b4f-b1d1-8fa80ec551aa/data/id}}",
+                                    "objectTypeId": 423,
+                                    "displayOrder": 0,
+                                    "serializedObject": "<SSJSActivity xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://exacttarget.com/wsdl/partnerAPI\"><PartnerKey xsi:nil=\"true\" /><ObjectID>c91f48fd-9673-4b4f-b1d1-8fa80ec551aa</ObjectID><Name>Email_Validation_Usage</Name><CategoryId>0</CategoryId></SSJSActivity>"
+                                }
+                            ],
+                            "annotation": "",
+                            "name": ""
+                        },
+                        {
+                            "activities": [
+                                {
+                                    "name": "{{mcpm#/entities/scriptActivities/0eb94737-e6d2-4b85-9606-74a0265b86cc/data/name}}",
+                                    "activityObjectId": "{{mcpm#/entities/scriptActivities/0eb94737-e6d2-4b85-9606-74a0265b86cc/data/id}}",
+                                    "objectTypeId": 423,
+                                    "displayOrder": 0,
+                                    "serializedObject": "<SSJSActivity xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://exacttarget.com/wsdl/partnerAPI\"><PartnerKey xsi:nil=\"true\" /><ObjectID>0eb94737-e6d2-4b85-9606-74a0265b86cc</ObjectID><Name>Email Verification Update</Name><CategoryId>0</CategoryId></SSJSActivity>"
+                                }
+                            ],
+                            "annotation": "",
+                            "name": ""
+                        }
+                    ],
+                    "startSource": {
+                        "typeId": 1,
+                        "schedule": {
+                            "iCalRecur": "FREQ=DAILY;UNTIL=20790606;INTERVAL=1",
+                            "startDate": "2024-06-28T14:45:00",
+                            "timeZoneId": 76
+                        }
+                    }
+                }
+            }
+        },
+        "categories": {
+            "390694": {
+                "issues": [],
+                "originID": "390694",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "dataextension",
+                    "parentId": 0,
+                    "name": "Data Extensions",
+                    "editable": 0,
+                    "extendable": 1
+                }
+            },
+            "390699": {
+                "issues": [],
+                "originID": "390699",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "queryactivity",
+                    "parentId": 0,
+                    "name": "Query",
+                    "editable": 0,
+                    "extendable": 1
+                }
+            },
+            "401368": {
+                "issues": [],
+                "originID": "401368",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "SSJSActivity",
+                    "parentId": 0,
+                    "name": "Scripts",
+                    "editable": 0,
+                    "extendable": 1
+                }
+            },
+            "604261": {
+                "issues": [],
+                "originID": "604261",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "automations",
+                    "parentId": 0,
+                    "name": "my automations",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            },
+            "963708": {
+                "issues": [],
+                "originID": "963708",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "dataextension",
+                    "parentId": "{{mcpm#/entities/categories/390694/data/id}}",
+                    "name": "System",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            },
+            "963714": {
+                "issues": [],
+                "originID": "963714",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "automations",
+                    "parentId": "{{mcpm#/entities/categories/604261/data/id}}",
+                    "name": "System",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            },
+            "963850": {
+                "issues": [],
+                "originID": "963850",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "queryactivity",
+                    "parentId": "{{mcpm#/entities/categories/390699/data/id}}",
+                    "name": "System",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            },
+            "1001534": {
+                "issues": [],
+                "originID": "1001534",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "dataextension",
+                    "parentId": "{{mcpm#/entities/categories/963708/data/id}}",
+                    "name": "Email Verification",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            },
+            "1004067": {
+                "issues": [],
+                "originID": "1004067",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "SSJSActivity",
+                    "parentId": "{{mcpm#/entities/categories/401368/data/id}}",
+                    "name": "System",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            },
+            "1077163": {
+                "issues": [],
+                "originID": "1077163",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "automations",
+                    "parentId": "{{mcpm#/entities/categories/963714/data/id}}",
+                    "name": "Email Varification",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            },
+            "1077168": {
+                "issues": [],
+                "originID": "1077168",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "queryactivity",
+                    "parentId": "{{mcpm#/entities/categories/963850/data/id}}",
+                    "name": "Email Verification",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            },
+            "1077169": {
+                "issues": [],
+                "originID": "1077169",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "description": "",
+                    "categoryType": "SSJSActivity",
+                    "parentId": "{{mcpm#/entities/categories/1004067/data/id}}",
+                    "name": "Email Verification",
+                    "editable": 1,
+                    "extendable": 1
+                }
+            }
+        },
+        "cloudPageCollections": {},
+        "codeResources": {},
+        "dataExtensions": {
+            "8204b904-032d-ef11-ba55-d4f5ef3de438": {
+                "issues": [],
+                "originID": "8204b904-032d-ef11-ba55-d4f5ef3de438",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "categoryId": "{{mcpm#/entities/categories/1001534/data/id}}",
+                    "dataRetentionProperties": {
+                        "isDeleteAtEndOfRetentionPeriod": false,
+                        "isResetRetentionPeriodOnImport": false,
+                        "isRowBasedRetention": false,
+                        "rowBasedThreshold": 1000000000
+                    },
+                    "description": "",
+                    "isFieldAdditionAllowed": true,
+                    "isFieldModificationAllowed": true,
+                    "isObjectDeletable": true,
+                    "isSendable": false,
+                    "isTestable": false,
+                    "name": "VERIFIED_EMAIL",
+                    "customerKey": "VERIFIED_EMAIL",
+                    "fields": [
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": false,
+                            "isPrimaryKey": true,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 254,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "EMAIL",
+                            "ordinal": 0,
+                            "type": "EmailAddress"
+                        },
+                        {
+                            "defaultValue": "false",
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "VALID",
+                            "ordinal": 1,
+                            "type": "Boolean"
+                        },
+                        {
+                            "defaultValue": "false",
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "PROCESSED",
+                            "ordinal": 2,
+                            "type": "Boolean"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "VERIFICATION_DATE",
+                            "ordinal": 4,
+                            "type": "Date"
+                        },
+                        {
+                            "defaultValue": "GetDate()",
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "INSERTED_DATE",
+                            "ordinal": 5,
+                            "type": "Date"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "PROCESS_DATE",
+                            "ordinal": 6,
+                            "type": "Date"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 50,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "CLASSIFICATION",
+                            "ordinal": 7,
+                            "type": "Text"
+                        }
+                    ]
+                }
+            },
+            "880cdf10-f833-ef11-ba55-d4f5ef3de438": {
+                "issues": [],
+                "originID": "880cdf10-f833-ef11-ba55-d4f5ef3de438",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "categoryId": "{{mcpm#/entities/categories/1001534/data/id}}",
+                    "dataRetentionProperties": {
+                        "isDeleteAtEndOfRetentionPeriod": false,
+                        "isResetRetentionPeriodOnImport": false,
+                        "isRowBasedRetention": false,
+                        "rowBasedThreshold": 1000000000
+                    },
+                    "description": "",
+                    "isFieldAdditionAllowed": true,
+                    "isFieldModificationAllowed": true,
+                    "isObjectDeletable": true,
+                    "isSendable": false,
+                    "isTestable": false,
+                    "name": "EVEREST_API_VALIDATION_HISTORY",
+                    "customerKey": "EVEREST_API_VALIDATION_HISTORY",
+                    "fields": [
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": false,
+                            "isPrimaryKey": true,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 50,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "REQUEST_ID",
+                            "ordinal": 0,
+                            "type": "Text"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "CREATED",
+                            "ordinal": 2,
+                            "type": "Date"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "COUNT",
+                            "ordinal": 3,
+                            "type": "Number"
+                        },
+                        {
+                            "defaultValue": "N",
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 50,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "COMPLETED",
+                            "ordinal": 4,
+                            "type": "Text"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "USED_CREDITS",
+                            "ordinal": 5,
+                            "type": "Number"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "REMAINING_CREDITS",
+                            "ordinal": 6,
+                            "type": "Number"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 18,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "USAGE_PERCENT",
+                            "ordinal": 10,
+                            "scale": 2,
+                            "type": "Decimal"
+                        }
+                    ]
+                }
+            },
+            "1c8cd664-e350-ef11-ba55-d4f5ef3de438": {
+                "issues": [],
+                "originID": "1c8cd664-e350-ef11-ba55-d4f5ef3de438",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "categoryId": "{{mcpm#/entities/categories/1001534/data/id}}",
+                    "dataRetentionProperties": {
+                        "isDeleteAtEndOfRetentionPeriod": false,
+                        "isResetRetentionPeriodOnImport": false,
+                        "isRowBasedRetention": false,
+                        "rowBasedThreshold": 1000000000
+                    },
+                    "description": "",
+                    "isFieldAdditionAllowed": true,
+                    "isFieldModificationAllowed": true,
+                    "isObjectDeletable": true,
+                    "isSendable": false,
+                    "isTestable": false,
+                    "name": "EVEREST_API_ERROR_LOG",
+                    "customerKey": "CA20BB79-5D60-482F-BA69-815F89FD210B",
+                    "fields": [
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 3000,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "ERROR",
+                            "ordinal": 0,
+                            "type": "Text"
+                        },
+                        {
+                            "defaultValue": "GetDate()",
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "DATE",
+                            "ordinal": 1,
+                            "type": "Date"
+                        }
+                    ]
+                }
+            },
+            "451f8d43-a629-ef11-ba55-d4f5ef3de438": {
+                "issues": [],
+                "originID": "451f8d43-a629-ef11-ba55-d4f5ef3de438",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "categoryId": "{{mcpm#/entities/categories/1001534/data/id}}",
+                    "dataRetentionProperties": {
+                        "isDeleteAtEndOfRetentionPeriod": false,
+                        "isResetRetentionPeriodOnImport": false,
+                        "isRowBasedRetention": false,
+                        "rowBasedThreshold": 1000000000
+                    },
+                    "description": "",
+                    "isFieldAdditionAllowed": true,
+                    "isFieldModificationAllowed": true,
+                    "isObjectDeletable": true,
+                    "isSendable": false,
+                    "isTestable": false,
+                    "name": "INTL_LEAD_MASTER",
+                    "customerKey": "INTL_LEAD_MASTER",
+                    "fields": [
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": false,
+                            "isPrimaryKey": true,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 100,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "CONSUMERID",
+                            "ordinal": 0,
+                            "type": "Text"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 254,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "EMAIL_ADDRESS",
+                            "ordinal": 1,
+                            "type": "EmailAddress"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 100,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "COUNTRY",
+                            "ordinal": 2,
+                            "type": "Text"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 100,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "DOMAIN",
+                            "ordinal": 3,
+                            "type": "Text"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 100,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "TOP_LEVEL_DOMAIN",
+                            "ordinal": 4,
+                            "type": "Text"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "length": 100,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "SEGMENTCODE",
+                            "ordinal": 5,
+                            "type": "Text"
+                        },
+                        {
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": false,
+                            "isOverridable": false,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "EMAIL_SOURCE_DTM",
+                            "ordinal": 6,
+                            "type": "Date"
+                        },
+                        {
+                            "defaultValue": "false",
+                            "description": "",
+                            "isHidden": false,
+                            "isInheritable": true,
+                            "isOverridable": true,
+                            "isNullable": true,
+                            "isPrimaryKey": false,
+                            "isReadOnly": false,
+                            "isTemplateField": false,
+                            "masktype": "None",
+                            "mustOverride": false,
+                            "name": "IS_VALID",
+                            "ordinal": 7,
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            }
+        },
+        "dataExtractActivities": {},
+        "dataFilterDefinitions": {},
+        "dataFilters": {},
+        "eventDefinitions": {},
+        "fileTransferActivities": {},
+        "importActivities": {},
+        "journeys": {},
+        "journeyTemplates": {},
+        "landingPages": {},
+        "microsites": {},
+        "micrositePages": {},
+        "micrositePageVersions": {},
+        "primaryLandingPages": {},
+        "queryActivities": {
+            "c98f471d-ef6a-45ee-9797-a526e78b8378": {
+                "issues": [],
+                "originID": "c98f471d-ef6a-45ee-9797-a526e78b8378",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "name": "Email_Verification_List",
+                    "categoryId": "{{mcpm#/entities/categories/1077168/data/id}}",
+                    "description": "",
+                    "isFrozen": false,
+                    "key": "C98F471D-EF6A-45EE-9797-A526E78B8378",
+                    "queryText": "select \nEMAIL_ADDRESS as EMAIL\nFrom {{mcpm#/entities/dataExtensions/451f8d43-a629-ef11-ba55-d4f5ef3de438/data/namePrefix}}[{{mcpm#/entities/dataExtensions/451f8d43-a629-ef11-ba55-d4f5ef3de438/data/name}}] A\nwhere not exists (SELECT 1 FROM {{mcpm#/entities/dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438/data/namePrefix}}[{{mcpm#/entities/dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438/data/name}}] V \n                  WHERE A.EMAIL_ADDRESS = V.EMAIL)\ngroup by EMAIL_ADDRESS                ",
+                    "targetId": "{{mcpm#/entities/dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438/data/id}}",
+                    "targetUpdateTypeId": 1,
+                    "targetUpdateTypeName": "Update"
+                }
+            }
+        },
+        "registeredCustomActivities": {},
+        "scriptActivities": {
+            "c91f48fd-9673-4b4f-b1d1-8fa80ec551aa": {
+                "issues": [],
+                "originID": "c91f48fd-9673-4b4f-b1d1-8fa80ec551aa",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "categoryId": "{{mcpm#/entities/categories/1077169/data/id}}",
+                    "description": "",
+                    "key": "2f1c56cf-b833-4d01-a50d-374ddcad922b",
+                    "name": "Email_Validation_Usage",
+                    "script": "<script runat=\"server\">\n  Platform.Load(\"core\", \"1.1.1\");\n  \n  var requestId = Platform.Function.Lookup('{{mcpm#/entities/dataExtensions/880cdf10-f833-ef11-ba55-d4f5ef3de438/data/name}}','REQUEST_ID','COMPLETED','N');\n  \n  try {\n    var headerNames = ['X-API-KEY'];\n    var headerValues = ['feadff26db001e58be2121861247ae43e76d1c3f'];\n    var payload = '';\n    var contentType = 'application/json';\n    var postUrl = 'https://api.everest.validity.com/api/2.0/accounts/998958';\n    //var result =  HTTP.Get(postUrl, headerNames, headerValues);\n    var res = Platform.Function.HTTPGet(postUrl,false,0,headerNames,headerValues,status);\n    var parsedResult = Platform.Function.ParseJSON(res);\n    var validationQuantity = parsedResult.results.subscription.products.validation.quantity;\n    var validationUsage = parsedResult.results.subscription.products.validation.usage;\n    var remainingCredits = validationQuantity - validationUsage;\n    var usagePercentage = ((validationUsage / validationQuantity)*100).toFixed(2);\n    \n    \n    if(parsedResult && parsedResult.results.length > 0){\n    Write(res);\n    usageUpdate(requestId, validationUsage, remainingCredits, usagePercentage);\n    } \n    \n    if (remainingCredits < 50000) {\n    //sendAlert;\n    }\n    \n  }\n  catch(error) {\n    Write('<br>' + Stringify(error));\n  }\n  \n\nfunction usageUpdate(requestId, validationUsage, remainingCredits, usagePercentage) {\nvar prox = new Script.Util.WSProxy();\nvar updateObject = {\n    CustomerKey: 'EVEREST_API_VALIDATION_HISTORY',\n    Properties: [\n        {\n            Name: 'REQUEST_ID',\n            Value: requestId\n        },\n        {\n            Name: 'USED_CREDITS',\n            Value: validationUsage\n        },\n        {\n            Name: 'REMAINING_CREDITS',\n            Value: remainingCredits\n        },\n        {\n            Name: 'USAGE_PERCENT',\n            Value: usagePercentage\n        }\n    ]\n};\n\nvar options = {SaveOptions: [{'PropertyName': '*', SaveAction: 'UpdateAdd'}]};\n\nvar reqUpdate = prox.updateItem('DataExtensionObject', updateObject, options);\n    \nreturn reqUpdate;\n  }\n  \nfunction sendAlert(email){\n/*\nvar triggeredSend = TriggeredSend.Init(\"triggeredSend\");\nvar status = triggeredSend.Send(email, {usagePercentage:\"\", remainingCredits:\"\"});\n*/      \n}\n  \n</script>"
+                }
+            },
+            "0eb94737-e6d2-4b85-9606-74a0265b86cc": {
+                "issues": [],
+                "originID": "0eb94737-e6d2-4b85-9606-74a0265b86cc",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "categoryId": "{{mcpm#/entities/categories/1077169/data/id}}",
+                    "description": "",
+                    "key": "3abd58cb-f22b-4a7b-bd18-aa48e8a2c9ca",
+                    "name": "Email Verification Update",
+                    "script": "<script runat=\"server\">\nPlatform.Load(\"core\", \"1.1.1\");\n\nfunction getApiResults(reqId,classification){\n\ntry {\n    \n    var key = 'X-API-KEY';\n    var value = 'feadff26db001e58be2121861247ae43e76d1c3f';    \n    var headerNames = [key];\n    var headerValues = [value];\n    \n    var validUrl = \"https://api.everest.validity.com/api/2.0/validation/exports/\" + reqId + \"/\" + classification;\n\n    var validResult = HTTP.Get(validUrl, headerNames, headerValues);\n    var jsonObject = Platform.Function.ParseJSON(validResult.Content); \n\n    return jsonObject;\n    \n  } catch(error) {\n    return error;\n  } \n\n} \n\ntry {\n  \n  var prox = new Script.Util.WSProxy();\n  var requestList = \"EVEREST_API_VALIDATION_HISTORY\";\n\n  var filter1 = {\n    Property: \"COUNT\",\n    SimpleOperator: \"greaterThan\",\n    Value: 0\n  };\n  var filter2 = {\n    Property: \"COMPLETED\",\n    SimpleOperator: \"equals\",\n    Value: \"N\"\n  };\n  var filter = {\n    LeftOperand: filter1,\n    LogicalOperator: \"AND\",\n    RightOperand: filter2\n  };\n\n  var listID = prox.retrieve(\"DataExtensionObject[\" + requestList + \"]\", [\"REQUEST_ID\"], filter);\n\n  if (listID.Status == \"OK\" && listID.Results.length > 0) { \n    for (var i = 0; i < listID.Results.length; i++) {\n        var requestId = listID.Results[i].Properties[0].Value;\n        Write('Request ID: ' + Stringify(requestId) + '<br>')\n\n        try {\n\n        var validResults = getApiResults(requestId,\"valid\");\n\n            if (validResults && validResults.results.length > 0) {\n                for (var i = 0; i < validResults.results.length; i++) {\n                var email = validResults.results[i].email;\n        \n                validEmailUpdate(email);\n                \n                }\n            }\n          \n        var unknownResults = getApiResults(requestId,\"unknown\");   \n        \n            if (unknownResults && unknownResults.results.length > 0) {\n                for (var i = 0; i < unknownResults.results.length; i++) {\n                var email = unknownResults.results[i].email;\n                var classStatus = unknownResults.results[i].classification;\n\n                riskyEmailUpdate(email,classStatus);\n\n                }\n            }\n\n        } catch (error) {\n\n        }\n\n        var reqIdUpdate = requestStatusUpdate(requestId);\n\n    }\n       \n  }\n\n  \n\n} catch (e) {\n    Write(\"Error_2: \" + Stringify(e));\n}\n\n/*--- Valid Email Status Update---*/ \n  function validEmailUpdate(email) {\n    var deUpdate = DataExtension.Init(\"{{mcpm#/entities/dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438/data/customerKey}}\");\n    var verificationDate = Now();\n\n    try {\n      \n      var updateObject = {\n        VALID: true,\n        VERIFICATION_DATE: verificationDate        \n      };\n\n      var cols = [\"EMAIL\"];\n      var vals = [email];\n\n      var updateResult = deUpdate.Rows.Update(updateObject, cols, vals);\n      return updateResult;\n      \n    } catch (e) {\n      return Platform.Function.Stringify(e);\n    }\n    \n  }\n\n/*--- Risky Email Status Update---*/ \n  function riskyEmailUpdate(email,classStatus) {\n    var deUpdate = DataExtension.Init(\"{{mcpm#/entities/dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438/data/customerKey}}\");\n    var verificationDate = Now();\n\n    try {\n      \n      var updateObject = {\n        CLASSIFICATION: classStatus,\n        VERIFICATION_DATE: verificationDate        \n      };\n\n      var cols = [\"EMAIL\"];\n      var vals = [email];\n\n      var updateResult = deUpdate.Rows.Update(updateObject, cols, vals);\n      return updateResult;\n      \n    } catch (e) {\n      return Platform.Function.Stringify(e);\n    }\n    \n  }\n\n/*---Request List Update---*/  \n\nfunction requestStatusUpdate(requestId) {\n\nvar updateObject = {\n    CustomerKey: 'EVEREST_API_VALIDATION_HISTORY',\n    Properties: [\n         {\n            Name: 'REQUEST_ID',\n            Value: requestId\n        },\n         {\n            Name: 'COMPLETED',\n            Value: 'Y'\n        }\n    ]\n};\n\nvar options = {SaveOptions: [{'PropertyName': '*', SaveAction: 'UpdateAdd'}]};\n\nvar reqUpdate = prox.updateItem('DataExtensionObject', updateObject, options);\n    \nreturn reqUpdate;\n  }\n</script>\n"
+                }
+            },
+            "d97e6b1e-cd56-43ba-a838-971efaee3326": {
+                "issues": [],
+                "originID": "d97e6b1e-cd56-43ba-a838-971efaee3326",
+                "originEID": "mc0xdmr989lqft6f0dhqg5lv4vv4",
+                "data": {
+                    "categoryId": "{{mcpm#/entities/categories/1077169/data/id}}",
+                    "description": "",
+                    "key": "265eaab4-3bba-4f6b-ba38-9565f382c2b8",
+                    "name": "Email Verification Request",
+                    "script": "<script runat=\"server\">\nPlatform.Load(\"core\", \"1.1.1\");\nvar prox = new Script.Util.WSProxy();\nvar deName = \"VERIFIED_EMAIL\";  \n \nvar config = {\n    name: deName,\n    cols: [\"EMAIL\", \"PROCESSED\"],  \n        \n    filter: {\n        Property: \"PROCESSED\",\n        SimpleOperator: \"equals\",\n        Value: \"False\"\n    }\n}\n\n\n\nvar data = prox.retrieve(\"DataExtensionObject[\" + config.name + \"]\", config.cols, config.filter);\n\nif (data && data.Results && data.Results.length > 0) {\n  var emailList = ''; \n\n  for (var i = 0; i < data.Results.length; i++) {\n    var email = data.Results[i].Properties[0].Value;\n\n  if (IsEmailAddress(email)){\n      if (emailList === '') {\n        emailList = email; \n      } else {\n        emailList += \";\" + email; \n      }\n   }\n    \n  }\n}\n\n//var emailList = retrieveRecords(config);\n//Write(emailList + '<br>');\n\nif(emailList.length != 0) {\n\n    try {\n\n        var Key = 'X-API-KEY';\n        var Value = 'feadff26db001e58be2121861247ae43e76d1c3f'; \n        var delimiter = ';';\n        var description = \"Lead_Master_Intl_API\";\n        var headerNames = [Key];\n        var headerValues = [Value];\n        var payload = {\n        'description': description,\n        'emails':  emailList,\n        'delimiter': delimiter\n        };\n        var contentType = 'application/json';\n        var postUrl = 'https://api.everest.validity.com/api/2.0/validation/lists';\n        var result = HTTP.Post(postUrl, contentType, Stringify(payload), headerNames, headerValues);\n        var parsedResult = Platform.Function.ParseJSON(result.Response[0]);\n        Write(Stringify(parsedResult));\n        var validationId = parsedResult.results.id;\n        var validationStatus = parsedResult.results.status;\n        var validationDate = parsedResult.results.created;\n        var validationCount = parsedResult.results.total;\n\n        if(validationId && validationStatus == \"processing\"){\n        var insertResponse = Platform.Function.InsertData(\"{{mcpm#/entities/dataExtensions/880cdf10-f833-ef11-ba55-d4f5ef3de438/data/name}}\",[\"REQUEST_ID\",\"CREATED\",\"COUNT\"],[validationId, validationDate, validationCount]);\n\n        var emailArray = emailList.split(';');\n\n        for (var i = 0; i < emailArray.length; i++) {\n            emailUpdateProcessed(emailArray[i]);\n            //Write(emailArray[i] + \" : processes\" + \"<br>\");\n        }\n\n        }\n        \n\n    }\n    catch(error) {\n        Write('<br>' + Stringify(error));\n        var insertError = Platform.Function.InsertData(\"{{mcpm#/entities/dataExtensions/1c8cd664-e350-ef11-ba55-d4f5ef3de438/data/name}}\",[\"ERROR\"],[Stringify(error)]);\n    }\n\n} else {\n        var insertError = Platform.Function.InsertData(\"{{mcpm#/entities/dataExtensions/1c8cd664-e350-ef11-ba55-d4f5ef3de438/data/name}}\",[\"ERROR\"],[\"Empty list error\"]);\n}\n  \n\n/*\nfunction retrieveRecords(config) {\n\n    var prox = new Script.Util.WSProxy();\n    var records = [],\n        moreData = true,\n        reqID = null,\n        data = null,\n        emailList = '';\n\n    while (moreData) {\n        moreData = false;\n\n        if (reqID == null) {\n            data = prox.retrieve(\"DataExtensionObject[\" + config.name + \"]\", config.cols, config.filter);\n        } else {\n            data = prox.getNextBatch(\"DataExtensionObject[\" + config.name + \"]\", reqID);\n        }\n\n        if (data != null) {\n            moreData = data.HasMoreRows;\n            reqID = data.RequestID;\n            for (var i = 0; i < data.Results.length; i++) {\n                var result_list = data.Results[i].Properties;\n\n                for (var k in result_list) {\n                    var key = result_list[k].Name;\n                    var val = result_list[k].Value;\n\n                    if (key === 'EMAIL') {\n                        if (emailList === '') {\n                            emailList = val;\n                        } else {\n                            emailList += \"|\" + val;\n                        }\n                    }\n                }\n            }\n        }\n    }\n    return emailList;\n\n}\n*/\n\n/*Update Process*/\nfunction emailUpdateProcessed(email) {\n    var deUpdate = DataExtension.Init(\"{{mcpm#/entities/dataExtensions/8204b904-032d-ef11-ba55-d4f5ef3de438/data/customerKey}}\");\n    var processDate = Now();\n\n    try {\n      \n      var updateObject = {\n        PROCESSED: true,\n        PROCESS_DATE: processDate\n      };\n\n      var cols = [\"EMAIL\"];\n      var vals = [email];\n\n      var updateResult = deUpdate.Rows.Update(updateObject, cols, vals);\n      return updateResult;\n      \n    } catch (e) {\n      return Platform.Function.Stringify(e);\n    }\n    \n  }\n\n\n</script>"
+                }
+            }
+        },
+        "sendDefinitions": {},
+        "sharedDataExtensions": {},
+        "siteMapVersions": {},
+        "subscriberLists": {},
+        "verificationActivities": {}
+    },
+    "selectedEntities": {
+        "assets": [],
+        "attributeGroups": [],
+        "automations": [
+            "a92797b1-2137-4ce7-9087-6e94900ad049"
+        ],
+        "cloudPageCollections": [],
+        "dataExtensions": [],
+        "journeys": [],
+        "journeyTemplates": [],
+        "sharedDataExtensions": []
+    }
+}
